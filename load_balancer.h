@@ -7,4 +7,4 @@
  *      Keeps track of time
  */
 
-#endif LOAD_BALANCER_H
+#endif // LOAD_BALANCER_H

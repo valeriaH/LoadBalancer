@@ -8,4 +8,4 @@
  *    Time (Integer)
  **/
 
-#endif REQUEST_H
+#endif // REQUEST_H
