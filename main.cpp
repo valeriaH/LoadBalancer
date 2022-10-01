@@ -2,6 +2,7 @@
 #include <string>
 
 #include "server.h"
+#include "request_queue.h"
 #include "request.h"
 #include "load_balancer.h"
 using namespace std;
@@ -21,6 +22,6 @@ int main()
     getline(cin, user_input);
     runtime = stoi(user_input);
 
-    
+
     return 0;
 }

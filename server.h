@@ -8,4 +8,11 @@
  *      Asks for another     
  */
 
+class server
+{
+
+public:
+    server();
+};
+
 #endif // SERVER_H
