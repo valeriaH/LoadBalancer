@@ -5,6 +5,7 @@
 #include "request_queue.h"
 #include "request.h"
 #include "load_balancer.h"
+
 using namespace std;
 
 
@@ -21,6 +22,9 @@ int main()
     cout << "Please enter the amount of time you would like to run the load balancer: ";
     getline(cin, user_input);
     runtime = stoi(user_input);
+
+    //start the load balancer
+    load_balancer loadbalancer(runtime, num_servers);
 
 
     return 0;

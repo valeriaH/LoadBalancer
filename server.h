@@ -8,11 +8,19 @@
  *      Asks for another     
  */
 
+#include<string>
+#include "request.h"
 class server
 {
 
 public:
     server();
+
+    std::string server_ID;
+
+    std::string handle_request(request r);
+
+
 };
 
 #endif // SERVER_H
