@@ -3,6 +3,9 @@
 
 #include <string>
 #include <queue>
+#include <ostream>
+#include <iostream>
+
 #include "request.h"
 
 /** 

@@ -24,8 +24,10 @@ int main()
     runtime = stoi(user_input);
 
     //start the load balancer
+    cout << "Starting load balancer..." << endl;
     load_balancer loadbalancer(runtime, num_servers);
 
+    
 
     return 0;
 }

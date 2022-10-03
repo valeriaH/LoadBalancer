@@ -14,12 +14,16 @@
 class load_balancer
 {
 public:
+
     load_balancer(int run_time, int num_servers);
 
     int runtime;
     int num_servers;
     request_queue requests;
     std::vector<server> webservers;
+
+    std::vector<server> start_webservers();
+    
     
 };
 #endif // LOAD_BALANCER_H

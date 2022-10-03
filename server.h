@@ -14,12 +14,11 @@ class server
 {
 
 public:
-    server();
+    server(std::string name);
 
     std::string server_ID;
 
     std::string handle_request(request r);
-
 
 };
 
