@@ -14,6 +14,7 @@ int main()
     string user_input;
     int num_servers;
     int runtime;
+    int initial_requests = 5;
 
     cout << "Please enter the number of servers: ";
     getline(cin, user_input);
@@ -25,9 +26,8 @@ int main()
 
     //start the load balancer
     cout << "Starting load balancer..." << endl;
-    load_balancer loadbalancer(runtime, num_servers);
-
-    
+    load_balancer loadbalancer(runtime, num_servers, initial_requests);
+    loadbalancer.initialize();
 
     return 0;
 }

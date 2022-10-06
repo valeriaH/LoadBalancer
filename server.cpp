@@ -6,10 +6,9 @@
 #include "request_queue.h"
 using namespace std;
 
-server::server(std::string name)
-{
-    server_ID = name;
-}
+server::server(std::string name) :
+    server_ID(name)
+{}
 
 std::string server::handle_request(request r) 
 {
