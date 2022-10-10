@@ -1,6 +1,9 @@
 #include <ostream>
 #include <iostream>
 #include <vector> 
+#include <chrono>
+#include <ctime>
+
 
 #include "server.h"
 #include "request.h"
@@ -37,6 +40,7 @@ std::vector<server> load_balancer::start_webservers()
         if(i != num_servers-1) 
             cout << ",";
         webserver_list.push_back(new_server);
+        free_webservers.push(new_server);
     }
     cout << endl;
     return webserver_list;
@@ -55,4 +59,17 @@ request_queue load_balancer::populate_requests()
 
     cout << "Request queue has been populated with " << to_string(initial_requests) << " requests." << endl;
     return r;
+}
+
+void load_balancer::run() 
+{
+    auto start = std::chrono::system_clock::now();
+    auto current = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds;
+
+    std::chrono::duration<double> time_limit = std::chrono::seconds(runtime);
+    while(elapsed_seconds < time_limit) {
+        current = std::chrono::system_clock::now();
+        elapsed_seconds = current-start;
+    }
 }

@@ -28,6 +28,10 @@ int main()
     cout << "Starting load balancer..." << endl;
     load_balancer loadbalancer(runtime, num_servers, initial_requests);
     loadbalancer.initialize();
+    loadbalancer.run();
+
+    //Once the load balancer stops running, it means that time is up or queue is empty
+    cout << "Done" << endl;
 
     return 0;
 }
