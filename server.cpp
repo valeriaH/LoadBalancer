@@ -1,5 +1,5 @@
 #include<string>
-
+#include <chrono>
 #include "server.h"
 #include "request.h"
 #include "load_balancer.h"
@@ -10,7 +10,8 @@ server::server(std::string name) :
     server_ID(name)
 {}
 
-std::string server::handle_request(request r) 
+void server::handle_request(request r,  int timestamp) 
 {
-    return "";
+    current_request = r;
+    current_wait = timestamp;
 }

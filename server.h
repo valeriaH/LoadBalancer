@@ -9,7 +9,9 @@
  */
 
 #include<string>
+#include <chrono>
 #include "request.h"
+
 class server
 {
 
@@ -17,8 +19,11 @@ public:
     server(std::string name);
 
     std::string server_ID;
+    request current_request;
+    int current_wait;
 
-    std::string handle_request(request r);
+
+    void handle_request(request r, int timestamp);
 
 };
 

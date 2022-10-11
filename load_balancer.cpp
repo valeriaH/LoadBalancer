@@ -18,15 +18,6 @@ load_balancer::load_balancer(int run_time, int num_servers, int initial_requests
     initial_requests(initial_requests)
 {}
 
-void load_balancer::initialize()
-{
-    //First, start up the webservers
-    webservers = start_webservers();
-
-    //Now, we can fill up the request queue
-    requests = populate_requests();
-}
-
 std::vector<server> load_balancer::start_webservers()
 {
     std::vector<server> webserver_list;
@@ -53,7 +44,7 @@ request_queue load_balancer::populate_requests()
     for(int i = 0; i < initial_requests; i++) 
     {
         request new_request;
-        cout << "New Request from " << new_request.IP_in << " to " << new_request.IP_out << endl;
+        cout << "New Request from " << new_request.IP_in << " to " << new_request.IP_out << " in time " << new_request.request_time << endl;
         r.insert_request(new_request);
     }
 
@@ -61,15 +52,63 @@ request_queue load_balancer::populate_requests()
     return r;
 }
 
+void load_balancer::assign_request()
+{
+        server current_server = free_webservers.front();
+        free_webservers.pop();
+
+        request current_request = requests.pop_request();
+
+        int current_timestamp = clock;
+        current_server.handle_request(current_request, current_timestamp);
+}
+
+void load_balancer::server_sweep()
+{
+    int request_time;
+    int request_duration;
+
+    for(int i = 0; i < num_servers; i++) 
+    {
+        //Check if the server is done with a request
+        server current_server = webservers[i];
+
+        request_time = current_server.current_request.request_time;
+        request_duration = clock - current_server.current_wait;
+
+        if(request_duration >= request_time)
+        {
+            //this means the server is done with the request
+            handled_requests.push_back(current_server.current_request);
+
+            std::string handled_time = to_string(request_duration);
+            handled_times.push_back(handled_time);
+
+            free_webservers.push(current_server);
+        }
+    }
+}
+
+void load_balancer::initialize()
+{
+    //First, start up the webservers
+    webservers = start_webservers();
+
+    //Now, we can fill up the request queue
+    requests = populate_requests();
+}
+
 void load_balancer::run() 
 {
-    auto start = std::chrono::system_clock::now();
-    auto current = std::chrono::system_clock::now();
-    std::chrono::duration<double> elapsed_seconds;
+    clock = 0;
 
-    std::chrono::duration<double> time_limit = std::chrono::seconds(runtime);
-    while(elapsed_seconds < time_limit) {
-        current = std::chrono::system_clock::now();
-        elapsed_seconds = current-start;
+    while(clock < runtime && !requests.is_empty()) {
+        clock += 1;
+
+        if(!requests.is_empty() && free_webservers.empty()) 
+            server_sweep();
+
+        while(!free_webservers.empty() && !requests.is_empty())
+            assign_request();
     }
 }

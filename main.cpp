@@ -14,7 +14,7 @@ int main()
     string user_input;
     int num_servers;
     int runtime;
-    int initial_requests = 5;
+    int initial_requests = 3;
 
     cout << "Please enter the number of servers: ";
     getline(cin, user_input);
@@ -32,6 +32,13 @@ int main()
 
     //Once the load balancer stops running, it means that time is up or queue is empty
     cout << "Done" << endl;
+    for(int i = 0; i < loadbalancer.handled_requests.size(); i++)
+    {
+        cout << "At " << loadbalancer.handled_times[i] << " " 
+            << loadbalancer.handled_servers[i].server_ID << " processed request from " 
+            << loadbalancer.handled_requests[i].IP_in << " to " << 
+            loadbalancer.handled_requests[i].IP_out << endl;
+    }
 
     return 0;
 }
