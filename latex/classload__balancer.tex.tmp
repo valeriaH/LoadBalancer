@@ -1,0 +1,116 @@
+\hypertarget{classload__balancer}{}\doxysection{load\+\_\+balancer Class Reference}
+\label{classload__balancer}\index{load\_balancer@{load\_balancer}}
+
+
+Load Balancer\+: Queue of requests Keeps track of time.  
+
+
+
+
+{\ttfamily \#include $<$load\+\_\+balancer.\+h$>$}
+
+
+
+Collaboration diagram for load\+\_\+balancer\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classload__balancer_a92688f700d699998cb2153e5290e5512}{load\+\_\+balancer}} (int run\+\_\+time, int num\+\_\+servers, int initial\+\_\+requests)
+\begin{DoxyCompactList}\small\item\em Load Balancer Class. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classload__balancer_a0eaa478ca7083d02415375fa4f6e8f39}\label{classload__balancer_a0eaa478ca7083d02415375fa4f6e8f39}} 
+std\+::vector$<$ \mbox{\hyperlink{classserver}{server}} $>$ {\bfseries start\+\_\+webservers} ()
+\item 
+\mbox{\Hypertarget{classload__balancer_aab0bf9be823a11b08d4dba220c781291}\label{classload__balancer_aab0bf9be823a11b08d4dba220c781291}} 
+\mbox{\hyperlink{classrequest__queue}{request\+\_\+queue}} {\bfseries populate\+\_\+requests} ()
+\item 
+\mbox{\Hypertarget{classload__balancer_ac98eebd3a654dd7d056ae146c7325d33}\label{classload__balancer_ac98eebd3a654dd7d056ae146c7325d33}} 
+void {\bfseries initialize} ()
+\item 
+\mbox{\Hypertarget{classload__balancer_a3d7bf2a0b7e8d1e72490f174d63213ad}\label{classload__balancer_a3d7bf2a0b7e8d1e72490f174d63213ad}} 
+void {\bfseries run} ()
+\item 
+\mbox{\Hypertarget{classload__balancer_af38d4e688dd669cfae7a3dae2cb75b62}\label{classload__balancer_af38d4e688dd669cfae7a3dae2cb75b62}} 
+void {\bfseries assign\+\_\+request} ()
+\item 
+\mbox{\Hypertarget{classload__balancer_aa6eef2da10cd6db147a71068f03029c6}\label{classload__balancer_aa6eef2da10cd6db147a71068f03029c6}} 
+void {\bfseries server\+\_\+sweep} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classload__balancer_a7f9b2dbb3d77f884eebdde3c5774a302}\label{classload__balancer_a7f9b2dbb3d77f884eebdde3c5774a302}} 
+int {\bfseries runtime}
+\item 
+\mbox{\Hypertarget{classload__balancer_a22cbdda05ac69ab0d9040689e7f1d49d}\label{classload__balancer_a22cbdda05ac69ab0d9040689e7f1d49d}} 
+int {\bfseries num\+\_\+servers}
+\item 
+\mbox{\Hypertarget{classload__balancer_adb7f0bdfab5bb34158061770518461f7}\label{classload__balancer_adb7f0bdfab5bb34158061770518461f7}} 
+int {\bfseries initial\+\_\+requests}
+\item 
+\mbox{\Hypertarget{classload__balancer_aad285776824dd3ecf48c1af9fff6f380}\label{classload__balancer_aad285776824dd3ecf48c1af9fff6f380}} 
+int {\bfseries clock}
+\item 
+\mbox{\Hypertarget{classload__balancer_ab4a0a63ff1704cfa00703aa945b69adf}\label{classload__balancer_ab4a0a63ff1704cfa00703aa945b69adf}} 
+\mbox{\hyperlink{classrequest__queue}{request\+\_\+queue}} {\bfseries requests}
+\item 
+\mbox{\Hypertarget{classload__balancer_a7fcd78d9d7c92f4f492682cb43808f1e}\label{classload__balancer_a7fcd78d9d7c92f4f492682cb43808f1e}} 
+std\+::vector$<$ \mbox{\hyperlink{classserver}{server}} $>$ {\bfseries webservers}
+\item 
+\mbox{\Hypertarget{classload__balancer_a518c77afda9e230e9711aab46117bfc4}\label{classload__balancer_a518c77afda9e230e9711aab46117bfc4}} 
+std\+::queue$<$ \mbox{\hyperlink{classserver}{server}} $>$ {\bfseries free\+\_\+webservers}
+\item 
+\mbox{\Hypertarget{classload__balancer_aef3fe85153141a11ff0a2abebc155a27}\label{classload__balancer_aef3fe85153141a11ff0a2abebc155a27}} 
+std\+::vector$<$ \mbox{\hyperlink{classrequest}{request}} $>$ {\bfseries handled\+\_\+requests}
+\item 
+\mbox{\Hypertarget{classload__balancer_aec457c995f28e15a004bf05ed20144a3}\label{classload__balancer_aec457c995f28e15a004bf05ed20144a3}} 
+std\+::vector$<$ \mbox{\hyperlink{classserver}{server}} $>$ {\bfseries handled\+\_\+servers}
+\item 
+\mbox{\Hypertarget{classload__balancer_a0a0e8a831afbb4cc0b82259ab372df0a}\label{classload__balancer_a0a0e8a831afbb4cc0b82259ab372df0a}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries handled\+\_\+times}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Load Balancer\+: Queue of requests Keeps track of time. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classload__balancer_a92688f700d699998cb2153e5290e5512}\label{classload__balancer_a92688f700d699998cb2153e5290e5512}} 
+\index{load\_balancer@{load\_balancer}!load\_balancer@{load\_balancer}}
+\index{load\_balancer@{load\_balancer}!load\_balancer@{load\_balancer}}
+\doxysubsubsection{\texorpdfstring{load\_balancer()}{load\_balancer()}}
+{\footnotesize\ttfamily load\+\_\+balancer\+::load\+\_\+balancer (\begin{DoxyParamCaption}\item[{int}]{run\+\_\+time,  }\item[{int}]{num\+\_\+servers,  }\item[{int}]{initial\+\_\+requests }\end{DoxyParamCaption})}
+
+
+
+Load Balancer Class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+\_\+time} & User defined limit for how long the load balancer should run. \\
+\hline
+{\em num\+\_\+servers} & User defined number of servers to process requests. \\
+\hline
+{\em initial\+\_\+requests} & Initially instantiated requests when the request queue is first created. \\
+\hline
+{\em clock} & Keeps track of the clock ticks for the load balancer system. \\
+\hline
+{\em requests} & Request\+\_\+queue object for all pending requests. \\
+\hline
+{\em webservers} & All webservers that are free or in use. \\
+\hline
+{\em free\+\_\+webservers} & Queue of all free webservers that are waiting to take a new request. \\
+\hline
+{\em handled\+\_\+requests} & Vector holding all completed requests. \\
+\hline
+{\em handled\+\_\+servers} & Vector holding all servers that completed the corresponding request. \\
+\hline
+{\em handled\+\_\+times} & Timestamps corresponding to the handled requests. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+load\+\_\+balancer.\+h\item 
+load\+\_\+balancer.\+cpp\end{DoxyCompactItemize}

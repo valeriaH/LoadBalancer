@@ -1,0 +1,47 @@
+\hypertarget{classserver}{}\doxysection{server Class Reference}
+\label{classserver}\index{server@{server}}
+
+
+Server object\+: Takes requests from load balancer Process the requests Asks for another ~\newline
+  
+
+
+
+
+{\ttfamily \#include $<$server.\+h$>$}
+
+
+
+Collaboration diagram for server\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classserver_a2accb2166edc369cd5f4b44343d03dd3}\label{classserver_a2accb2166edc369cd5f4b44343d03dd3}} 
+{\bfseries server} (std\+::string name)
+\item 
+\mbox{\Hypertarget{classserver_a4ba56245a7fd1ad654dc4e86c598cdca}\label{classserver_a4ba56245a7fd1ad654dc4e86c598cdca}} 
+void {\bfseries handle\+\_\+request} (\mbox{\hyperlink{classrequest}{request}} r, int timestamp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classserver_ab2fe0437f8726436fc0e1223203712c8}\label{classserver_ab2fe0437f8726436fc0e1223203712c8}} 
+std\+::string {\bfseries server\+\_\+\+ID}
+\item 
+\mbox{\Hypertarget{classserver_a37d5461f7c9362cdaaf141e677018677}\label{classserver_a37d5461f7c9362cdaaf141e677018677}} 
+\mbox{\hyperlink{classrequest}{request}} {\bfseries current\+\_\+request}
+\item 
+\mbox{\Hypertarget{classserver_a31ad9da45f45d13746678f4a42bde5d1}\label{classserver_a31ad9da45f45d13746678f4a42bde5d1}} 
+int {\bfseries current\+\_\+wait}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Server object\+: Takes requests from load balancer Process the requests Asks for another ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server.\+h\item 
+server.\+cpp\end{DoxyCompactItemize}
